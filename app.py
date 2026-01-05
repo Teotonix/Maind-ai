@@ -1,10 +1,13 @@
-from flask import Flask
+import gradio as gr
 
-app = Flask(__name__)
+def chat(msg):
+    return f"AI cevapladı: {msg}"
 
-@app.route("/")
-def home():
-    return "MaindAI çalışıyor ✅"
+demo = gr.Interface(
+    fn=chat,
+    inputs=gr.Textbox(placeholder="Bir şey yaz..."),
+    outputs="text",
+    title="MaindAI"
+)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=7860)
+demo.launch()
