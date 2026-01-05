@@ -1,13 +1,10 @@
 import gradio as gr
 
-def chat(msg):
-    return f"AI cevapladı: {msg}"
+def hello(name):
+    return "ÇALIŞIYOR: " + name
 
-demo = gr.Interface(
-    fn=chat,
-    inputs=gr.Textbox(placeholder="Bir şey yaz..."),
+gr.Interface(
+    fn=hello,
+    inputs="text",
     outputs="text",
-    title="MaindAI"
-)
-
-demo.launch()
+).launch()
