@@ -1,11 +1,12 @@
 import gradio as gr
 
-def chat(msg):
-    return "Backend çalışıyor ✅ Mesajın: " + msg
+def hello(name):
+    return "Çalışıyor: " + name
 
-gr.Interface(
-    fn=chat,
+demo = gr.Interface(
+    fn=hello,
     inputs="text",
-    outputs="text",
-    title="MaindAI Test"
-).launch()
+    outputs="text"
+)
+
+demo.launch()
