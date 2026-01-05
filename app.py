@@ -1,7 +1,10 @@
-import gradio as gr
+from flask import Flask
 
-def chat(message, history):
-    return "Çalışıyor ✅"
+app = Flask(__name__)
 
-demo = gr.ChatInterface(chat)
-demo.launch()
+@app.route("/")
+def home():
+    return "MaindAI çalışıyor ✅"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7860)
